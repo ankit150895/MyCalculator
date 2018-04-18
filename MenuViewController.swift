@@ -9,9 +9,13 @@
 import UIKit
 import SideMenu
 class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
     var menuHeading = ["Row 1","Row 2"]
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
