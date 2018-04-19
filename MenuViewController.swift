@@ -10,7 +10,8 @@ import UIKit
 import SideMenu
 class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    var menuHeading = ["Row 1","Row 2"]
+    var menuHeading = ["Photos","Settings"]
+    var menuRowImage: [UIImage] = [#imageLiteral(resourceName: "photos75"),#imageLiteral(resourceName: "settings75")]
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -20,7 +21,9 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as! MenuTableViewCell
-        cell.menuLabel.text = menuHeading[indexPath.row]
+        cell.menuImage.image = menuRowImage[indexPath.row]
+        cell.menuLabel.text = "\t\(menuHeading[indexPath.row])"
+        cell.menuLabel.font = UIFont.boldSystemFont(ofSize: 20)
         return cell
     }
     
