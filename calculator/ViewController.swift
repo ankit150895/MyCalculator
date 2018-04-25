@@ -97,6 +97,8 @@ class ViewController: UIViewController {
                 {
                     let vc = storyboard?.instantiateViewController(withIdentifier: "CustomView") as! CustomView
                     let navigationController = UINavigationController(rootViewController: vc)
+                    result = "0"
+                    outputLabel.text = "0"
                    self.present(navigationController, animated: true, completion: nil)
                     //self.navigationController?.present(navigationController, animated: true,completion: nil)
                   

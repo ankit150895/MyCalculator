@@ -27,14 +27,30 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return cell
     }
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0
+        {
+            //let vc = storyboard?.instantiateViewController(withIdentifier: "CustomView") as! CustomView
+            self.dismiss(animated: true, completion: nil)
+        } else
+        {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "SettingsViewController") as! UINavigationController
+            self.present(vc, animated: false, completion: nil)
+           
+        }
+    }
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
      // let menuLeftNavigationController = UISideMenuNavigationController(rootViewController:  CustomView())
      //   SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
-     let menuRightNavigationController = UISideMenuNavigationController(rootViewController: CustomView())
-     SideMenuManager.default.menuRightNavigationController = menuRightNavigationController
+     
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        let menuRightNavigationController = UISideMenuNavigationController(rootViewController: CustomView())
+        SideMenuManager.default.menuRightNavigationController = menuRightNavigationController
         SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
     }
