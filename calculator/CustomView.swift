@@ -81,6 +81,10 @@ class CustomView: UIViewController,UITableViewDataSource,UITableViewDelegate,UIS
             // self.present(UISideMenuNavigationController(rootViewController:CustomView()), animated: true, completion: nil)
         }
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CustomCollectionViewController") as! CustomCollectionViewController
+        self.present(vc, animated: true, completion: nil)
+    }
     
     
     var menuVisible = false
