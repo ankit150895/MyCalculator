@@ -446,6 +446,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="myTableView" destination="V3J-nd-uvs" id="8Qf-AG-vDd"/>
+                        <outlet property="popUpTitle" destination="QQT-Q9-nPj" id="7FY-ZQ-Cfs"/>
                         <outlet property="popUpView" destination="d65-Jt-suJ" id="Pqd-hN-uST"/>
                     </connections>
                 </viewController>
@@ -469,6 +471,9 @@
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="donePress:" destination="H6M-dp-KYq" eventType="touchUpInside" id="osZ-4o-o8l"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIX-RO-Cy8">
                                 <rect key="frame" x="73" y="142" width="146" height="41"/>
@@ -476,6 +481,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelPress:" destination="H6M-dp-KYq" eventType="touchUpInside" id="bvN-Fa-e7I"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="color4"/>

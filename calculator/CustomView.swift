@@ -9,9 +9,25 @@
 import UIKit
 import SideMenu
 class CustomView: UIViewController,UITableViewDataSource,UITableViewDelegate,UISideMenuNavigationControllerDelegate {
+    var albumName = NSMutableArray()
     var albumImage: [UIImage] = [#imageLiteral(resourceName: "defaultImage")]
+    
+    @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var popUpTitle: UITextField!
+    
+    @IBAction func donePress(_ sender: Any) {
+        albumName.add(popUpTitle.text as Any)
+        popUpTitle.text = ""
+        myTableView.reloadData()
+        popUpView.removeFromSuperview()
+    }
+    
+    @IBAction func cancelPress(_ sender: Any) {
+        popUpTitle.text = ""
+        popUpView.removeFromSuperview()
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return albumName.count
     }
     
     
@@ -21,10 +37,10 @@ class CustomView: UIViewController,UITableViewDataSource,UITableViewDelegate,UIS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell") as! HomeTableViewCell
-        cell.homeAlbumName.text = "\ttest Album"
+        cell.homeAlbumName.text = albumName[indexPath.row] as? String
         cell.homeAlbumName.textColor = UIColor.white
         cell.homeAlbumName.font = UIFont.boldSystemFont(ofSize: 20)
-        cell.homeImage.image = albumImage[indexPath.row]
+        cell.homeImage.image = albumImage[0]
         cell.accessoryType = .disclosureIndicator
         return cell
     }
