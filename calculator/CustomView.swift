@@ -82,7 +82,7 @@ class CustomView: UIViewController,UITableViewDataSource,UITableViewDelegate,UIS
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "CustomCollectionViewController") as! CustomCollectionViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CustomCollectionViewController") as! UINavigationController
         self.present(vc, animated: true, completion: nil)
     }
     

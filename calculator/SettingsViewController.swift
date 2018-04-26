@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+var indexPathReceive = IndexPath()
 class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var options = ["About Us","Change Email ID","Change 4 - digit Pin"]
     var titleof = ["About","Recovery","Change Pass"]
@@ -50,7 +50,13 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\(indexPath)")
+        let vc = storyboard?.instantiateViewController(withIdentifier: "AfterSettingsViewController") as! UINavigationController
+        indexPathReceive = indexPath
+        self.present(vc, animated: true, completion: nil)
+        
+    }
 
     /*
     // MARK: - Navigation
